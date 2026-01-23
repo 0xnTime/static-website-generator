@@ -27,8 +27,9 @@ def generate_page(from_path, template_path, dest_path, basepath):
 
     full_html = template.replace("{{ Title }}", title)
     full_html = full_html.replace("{{ Content }}", html_content)
-    full_html = full_html.replace('href="/', 'href="{basepath')
-    full_html = full_html.replace('src="/', 'src="{basepath}"')
+    full_html = full_html.replace('href="/', f'href="{basepath}/')
+    full_html = full_html.replace('src="/',  f'src="{basepath}/')
+
 
     dirpath = os.path.dirname(dest_path)
     if dirpath != "" and not os.path.exists(dirpath):

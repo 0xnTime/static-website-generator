@@ -10,11 +10,10 @@ template_path = "./template.html"
 
 
 def main():
+    basepath = ""
+
     if len(sys.argv) > 1:
         basepath = sys.argv[1]
-    else:
-        basepath = "/"
-
 
     print("Copying static files to public directory...")
     setup_directory(dir_path_static, dir_path_public)
@@ -24,8 +23,6 @@ def main():
     generate_pages_recursive(dir_path_content, template_path, dir_path_public, basepath)
 
 
-
-    
 
 
 main()
