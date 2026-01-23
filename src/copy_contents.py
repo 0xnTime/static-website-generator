@@ -2,17 +2,15 @@ import shutil
 import os
 
 
-def setup_directory():
-    curr = os.getcwd()
-    destination_directory = os.path.join(curr, "public/")
-    source_dir = os.path.join(curr, "static")
-    if not os.path.exists(destination_directory):
-        os.mkdir(destination_directory)
-    else:
-        shutil.rmtree(destination_directory)
-        os.mkdir(destination_directory)
+def setup_directory(dir_path_static, dir_path_public):
 
-    copy_contents(source_dir,destination_directory)
+    if not os.path.exists(dir_path_public):
+        os.mkdir(dir_path_public)
+    else:
+        shutil.rmtree(dir_path_public)
+        os.mkdir(dir_path_public)
+
+    copy_contents(dir_path_static,dir_path_public)
 
 
 def copy_contents(source_dir, dest_dir):
